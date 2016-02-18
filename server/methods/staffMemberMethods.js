@@ -5,12 +5,13 @@
 
 Meteor.methods({
     addStaffMember: function(params){
-        check(params, {
-            firstName: String,
-            lastName: String,
-            mobileNumber: Number,
-            order: Number
-        });
+        //check(params, {
+        //    firstName: String,
+        //    lastName: String,
+        //    mobileNumber: Number,
+        //    order: Number
+        //});
+        console.log('hello');
         StaffMembers.insert(params);
     }
 });

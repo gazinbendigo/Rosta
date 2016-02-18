@@ -30,8 +30,8 @@ twbs:bootstrap-noglyph
 spacebars
 #http
 reactive-var
-check
-audit-argument-checks #This package should go hand in hand with check
+#check
+#Saudit-argument-checks #This package should go hand in hand with check
 #datatable.js a javascript library that maybe very handy for EMA
 
 momentjs:moment
