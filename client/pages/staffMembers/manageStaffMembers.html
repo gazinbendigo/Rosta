@@ -14,7 +14,7 @@
                     {{#each staff}}
                         <li data-id="{{_id}}" >
                             <span class="pull-left">{{order}}. {{firstName}} {{lastName}} - mobile: {{mobileNumber}}</span>
-                            <i class="fa fa-remove pull-right text-danger delete-book"></i>
+                            <i class="fa fa-remove pull-right text-danger delete-staffMember"></i>
                         </li>
                     {{/each}}
                 </ul>
@@ -30,10 +30,10 @@
                         <input type="text" name="lastName" placeholder="Last Name">
                     </div>
                     <div class="col-xs-12 col-sm-3">
-                        <input type="text" name="mobile" placeholder="Mobile no">
+                        <input type="text" name="mobileNo" placeholder="Mobile no">
                     </div>
                     <div class="col-xs-12 col-sm-3">
-                        <button type="submit" name="addStaff" class="button">Add Staff Member</button>
+                        <button type="submit" name="addStaff" class="green-button">Add Staff Member</button>
                     </div>
                 </div>
             </div>

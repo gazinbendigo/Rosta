@@ -30,7 +30,7 @@ Template.addGroup.events({
                 console.log( error );
             } else {
                 $( event.target ).get(0).reset();
-                $( '[name="groupTitle"]' ).focus();
+                $( '[name="acronym"]' ).focus();
                 //initSortable( '.sortable' );
             }
         });

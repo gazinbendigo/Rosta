@@ -7,6 +7,6 @@ BlazeLayout.setRoot('body');
 FlowRouter.route('/', {
     name: 'home',
     action: function(){
-        BlazeLayout.render("baseLayout", {header: "header", main: "addGroup", footer: "footer"});
+        BlazeLayout.render("baseLayout", {header: "header", main: "manageStaffMembers", footer: "footer"});
     }
 });
