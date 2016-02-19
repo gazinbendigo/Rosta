@@ -1,0 +1,235 @@
+@import "custom.bootstrap.import.less";
+
+
+@link-color: #434567;
+@link-hover-color: #275828;
+@link-decoration: underline;
+
+@background-color: #FFF;
+@green-brown: #AC9B5B; //Used for borders and Buttons
+@tan-text-color: #f9ecba;
+@heading-font-family: 'Open Sans', tahoma, verdana, arial;
+@button-font-family: arial;
+@heading-color: #333;
+
+@heading1-size: 2.755em;
+@heading2-size: 2.255em;
+
+
+/* Mixins */
+
+.box-shadow(@h-shadow, @v-shadow, @blur, @spread, @color) {
+  -moz-box-shadow: @h-shadow @v-shadow @blur @spread @color;
+  -webkit-box-shadow: @h-shadow @v-shadow @blur @spread @color;
+  -o-box-shadow: @h-shadow @v-shadow @blur @spread @color;
+  box-shadow: @h-shadow @v-shadow @blur @spread @color;
+}
+
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -ms-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.button(@radius, @borderColor, @color, @fontFamily){
+  .border-radius(@radius);
+  border:1px solid @borderColor;//#333;
+  display:inline-block;
+  cursor:pointer;
+  color:@color;//#222;
+  font-family:@fontFamily;//Arial;
+  font-size:15px;
+  font-weight:bold;
+  padding:6px 35px;
+  text-decoration:none;
+  border-color: #BBB;
+}
+
+/* End Mixins */
+
+html , body {
+  height: 100%;
+  width: 100%;
+  //background: #fff;
+  background-color: @background-color;
+}
+
+/* Wrapper for page content to push down footer */
+#wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -60px;
+}
+
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+  height: 60px;
+}
+#footer {
+  background-color: #2B2724;
+  color: #9a906c;
+  //margin-top: 4.2em;
+  .footer-text-container {
+    padding-top: 1.95rem;
+  }
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+  #footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.header-container {
+  padding-top: 2em;
+}
+
+p {
+  font-family: 'Open Sans', tahoma, verdana, Arial;
+  font-weight: normal;
+  font-size: 0.82em;
+  line-height: 1.65em;
+  margin-bottom: 0;
+}
+h1 {
+  font-family: @heading-font-family;
+  font-size: @heading1-size;
+  //margin-bottom: .5em;
+  font-weight: normal;
+  margin-top: 0;
+  line-height: 1.2em;
+  color: @heading-color;
+  display: block;
+}
+h2 {
+  font-family: @heading-font-family;
+  color: @heading-color;
+  font-size: @heading2-size;
+}
+
+.loading-wrapper {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: relative;
+
+}
+
+table {
+  thead{
+    tr {
+      th {
+        background: #F5F5F5;
+        color: #222222;
+        font-size: 1.25rem;
+        font-weight: bold;
+        padding: 0.44444rem 0.55556rem 0.55556rem;
+      }
+    }
+  }
+  td {padding: 0.44444rem 0.55556rem 0.55556rem;}
+  background: #FFFFFF;
+  border: solid 1px #DDDDDD;
+  table-layout: auto;
+  margin-bottom: 1.11111rem;
+  border-spacing: 2px;
+  display: table;
+  border-collapse: separate;
+  tr:nth-child(even){
+    background: #FEFEFE;
+  }
+  tr:nth-child(odd){
+    background: #F9F9F9;
+  }
+
+}
+
+.button-container{
+  margin-bottom: 2em;
+  margin-top: 2em;
+}
+
+.green-button{
+  background-color:#41DB00;
+  .button(4px, #333, #222, @button-font-family);
+}
+
+input:not([type]),
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="color"],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+  background-color: #FFFFFF;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cccccc;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: #444444;
+  display: block;
+  font-family: inherit;
+  font-size: 1.35rem;
+  height: 2.8556rem;
+  margin: 0 0 1.1rem 0;
+  padding: 0.4444rem;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: border-color 0.15s linear, background 0.15s linear;
+  -moz-transition: border-color 0.15s linear, background 0.15s linear;
+  -ms-transition: border-color 0.15s linear, background 0.15s linear;
+  -o-transition: border-color 0.15s linear, background 0.15s linear;
+  transition: border-color 0.15s linear, background 0.15s linear;
+}
+
+select {
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  -webkit-transition: border-color 0.15s linear, background 0.15s linear;
+  padding: 0.4444rem;
+}
+
+label {
+  color: #4d4d4d;
+  cursor: pointer;
+  display: block;
+  font-size: 1.35rem;
+  font-weight: normal;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+a{
+  color: @green-brown;
+  &:hover {color: #FFF; text-decoration: underline;}
+  &:visited {color: @green-brown;}
+}
+
+#add-group {
+  padding-top: 1.5em;
+}
+
+
+
