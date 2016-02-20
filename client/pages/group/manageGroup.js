@@ -2,17 +2,17 @@
  * Created by holly on 14/02/16.
  */
 
-Template.manageGroup.onCreated(function(){
+Template.manageGroups.onCreated(function(){
      Meteor.subscribe('groups');
 });
 
-Template.manageGroup.helpers({
+Template.manageGroups.helpers({
     groups: function() {
         return Groups.find({});
     }
 });
 
-Template.manageGroup.events({
+Template.manageGroups.events({
     'submit #add-group' ( event, template ) {
         event.preventDefault();
 

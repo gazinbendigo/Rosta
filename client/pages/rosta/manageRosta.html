@@ -1,0 +1,33 @@
+<template name="manageRosta">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Manage Rosta's</h2>
+                    <hr/>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-5">
+                    <ul class="list-group sortable">
+                        {{#each groups}}
+                            <li data-id="{{_id}}" >
+                                <span class="pull-left">{{order}}. {{acronym}} - {{description}}</span>
+                                <i class="fa fa-remove pull-right text-danger delete-book"></i>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <form id="createRosta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-5">
+                        <button type="submit" class="green-button">Create Rosta</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+</template>

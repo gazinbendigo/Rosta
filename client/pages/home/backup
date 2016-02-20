@@ -1,0 +1,3 @@
+{{#each groupUrls}}
+                    {{> group}}
+                {{/each}}

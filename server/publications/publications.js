@@ -14,3 +14,7 @@ Meteor.publish('staffMembers', function(){
 Meteor.publish('oncallPeriod', function(){
     return OncallPeriod.find({});
 });
+
+Meteor.publish('rostas', function(){
+    return Rostas.find({});
+});
