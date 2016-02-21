@@ -11,7 +11,7 @@ Meteor.publish('staffMembers', function(){
     return StaffMembers.find({});
 });
 
-Meteor.publish('oncallPeriod', function(){
+Meteor.publish('onCallPeriod', function(){
     return OncallPeriod.find({});
 });
 

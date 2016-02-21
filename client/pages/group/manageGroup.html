@@ -13,7 +13,7 @@
                 <ul class="list-group sortable">
                     {{#each groups}}
                         <li data-id="{{_id}}" >
-                            <span class="pull-left">{{order}}. {{acronym}} - {{description}}</span>
+                            <span class="pull-left">{{order}}. {{name}} - {{telephone}}</span>
                             <i class="fa fa-remove pull-right text-danger delete-book"></i>
                         </li>
                     {{/each}}
@@ -25,10 +25,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-5">
-                    <input type="text" name="acronym" placeholder="Acronym">
+                    <input type="text" name="groupName" placeholder="Name">
                 </div>
                 <div class="col-xs-12 col-sm-5">
-                    <input type="text" name="description" placeholder="Description">
+                    <input type="tel" name="phoneNumber" placeholder="0354425468" maxlength="10">
                 </div>
                 <div class="col-xs-12 col-sm-2">
                     <button type="submit" name="addGroup" class="green-button">Add Group</button>

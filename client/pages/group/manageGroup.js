@@ -17,8 +17,8 @@ Template.manageGroups.events({
         event.preventDefault();
 
         let group = {
-            acronym: template.find( '[name="acronym"]' ).value,
-            description: template.find( '[name="description"]' ).value
+            name: template.find( '[name="groupName"]' ).value,
+            telephone: template.find( '[name="phoneNumber"]' ).value
         };
 
         let groupIndex = Groups.find().count() + 1;
