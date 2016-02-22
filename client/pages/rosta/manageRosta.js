@@ -3,11 +3,13 @@
  */
 
 Template.manageRosta.onCreated(function() {
-
+    Meteor.subscribe('onCallPeriod');
 });
 
 Template.manageRosta.helpers({
-
+    onCallPeriods: function() {
+        return OncallPeriod.find({});
+    }
 });
 
 Template.manageRosta.events({

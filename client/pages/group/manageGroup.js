@@ -23,6 +23,7 @@ Template.manageGroups.events({
 
         let groupIndex = Groups.find().count() + 1;
         group.order = groupIndex;
+        group.id = groupIndex;
 
         Meteor.call( 'addGroup', group, ( error ) => {
             if ( error ) {

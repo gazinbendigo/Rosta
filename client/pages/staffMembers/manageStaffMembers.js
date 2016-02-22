@@ -34,6 +34,7 @@ Template.manageStaffMembers.events({
 
         let index = StaffMembers.find().count() + 1;
         newMember.order = index;
+        newMember.id = index;
 
         Meteor.call('addStaffMember', newMember, (error) => {
             if(error){
