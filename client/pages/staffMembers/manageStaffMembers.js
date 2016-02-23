@@ -1,18 +1,28 @@
 /**
- * Created by adm9360 on 15/02/2016.
+ * Created by holly on 15/02/16.
  */
 
 Template.manageStaffMembers.onCreated(function(){
     Meteor.subscribe('staffMembers');
+    Meteor.subscribe('groups');
 });
 
 Template.manageStaffMembers.helpers({
     staff: function() {
         return StaffMembers.find({});
+    },
+
+    groups: function() {
+        return Groups.find({});
     }
 });
 
 Template.manageStaffMembers.events({
+    "change #groups": function(event, template){
+        var selectedGroup = $('#groups').val;
+        Session.set("selected-group", selectedGroup);
+    },
+
     'submit #add-staff-member' (event, template){
         event.preventDefault();
 
@@ -24,6 +34,7 @@ Template.manageStaffMembers.events({
 
         let index = StaffMembers.find().count() + 1;
         newMember.order = index;
+        newMember.id = index;
 
         Meteor.call('addStaffMember', newMember, (error) => {
             if(error){

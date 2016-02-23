@@ -74,7 +74,7 @@ html , body {
   color: #9a906c;
   //margin-top: 4.2em;
   .footer-text-container {
-    padding-top: 1.95rem;
+    margin-top: 1.95rem;
   }
 }
 
@@ -89,7 +89,7 @@ html , body {
 }
 
 .header-container {
-  padding-top: 2em;
+  margin-top: 2rem;
 }
 
 p {
@@ -223,13 +223,52 @@ label {
 
 a{
   color: @green-brown;
-  &:hover {color: #FFF; text-decoration: underline;}
+  &:hover {color: #888; text-decoration: none;}
   &:visited {color: @green-brown;}
 }
 
 #add-group {
-  padding-top: 1.5em;
+  margin-top: 1.5em;
 }
+
+.content-container{
+  margin-top: 1em;
+}
+
+.nav {
+  a {
+    color: slategrey;
+    &:hover {color: #333;}
+  };
+}
+
+.rosta-container {
+  margin-top: 2.5rem;
+  overflow-x:scroll ;
+  overflow-y: hidden;
+  white-space: nowrap;
+  ul {list-style: none;}
+  li{
+      display: inline-block;
+      padding: 14px;
+  }
+  ul.rosta-col li {
+    margin-right: -4px;
+    border: 1px solid #a5a5a5;
+    text-align: center;
+  }
+}
+
+.telephone-container {
+    margin-top: 2.5rem;
+    img {margin-bottom: 8px;}
+}
+
+.group-url-col-container {
+    margin-bottom: 1rem;
+}
+
+
 
 
 

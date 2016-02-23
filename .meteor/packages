@@ -33,5 +33,5 @@ reactive-var
 #check
 #Saudit-argument-checks #This package should go hand in hand with check
 #datatable.js a javascript library that maybe very handy for EMA
-
+#aldeed:simple-schema #Validation library
 momentjs:moment
