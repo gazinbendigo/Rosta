@@ -10,6 +10,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-5">
                     <select id="groups">
+                        <option value="select">-- select --</option>
                         {{#each groups}}
                         <option value="{{_id}}">{{name}}</option>
                         {{/each}}
@@ -18,16 +19,18 @@
             </div>
             {{/if}}
         </div>
+        {{#if isGroupSelected}}
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
                     <hr/>
                     <div class="telephone-container">
-                        <h3>Integration Core Competency:<a href="tel:03-5442-5468"> (03) 5442 5468&nbsp;<img src="/images/icons/telephone.png"></a></h3>
+                        <h3>{{groupName}}:<a href="tel:03-5442-5468"> (03) 5442 5468&nbsp;<img src="/images/icons/telephone.png"></a></h3>
                     </div>
                 </div>
             </div>
         </div>
+        {{/if}}
         {{#if isGroupSelected}}
         <div class="list-container">
             <div class="container">

@@ -29,26 +29,34 @@ Template.manageStaffMembers.events({
 
     'submit #add-staff-member' (event, template){
         event.preventDefault();
+        console.log(template.$('select[id=groups]').val());
+        if('select' !== template.$('select[id=groups]').val()){
+            let newMember = {
+                firstName: template.find('[name=firstName]').value,
+                lastName: template.find('[name=lastName]').value,
+                groupId: template.$('select[id=groups]').val()
+            }
 
-        let newMember = {
-            firstName: template.find('[name=firstName]').value,
-            lastName: template.find('[name=lastName]').value,
-            groupId: template.$('#groups').attr('name')
+            let index = StaffMembers.find().count() + 1;
+            newMember.order = index;
+            newMember.id = index;
+
+            Meteor.call('addStaffMember', newMember, (error) => {
+                if(error){
+                    console.log(error.reason);
+                    alert(error);
+                }
+                else {
+                    $(event.target).get(0).reset();
+                    $('[name=firstName]').focus();
+                }
+            });
+        }
+        else {
+            alert("Choose a valid Group from the dropdown");
         }
 
-        let index = StaffMembers.find().count() + 1;
-        newMember.order = index;
-        newMember.id = index;
-
-        Meteor.call('addStaffMember', newMember, (error) => {
-            if(error){
-                console.log(error.reason);
-                alert(error);
-            }
-            else {
-                $(event.target).get(0).reset();
-                $('[name=firstName]').focus();
-            }
-        });
     }
 });
+
+
