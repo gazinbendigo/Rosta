@@ -14,6 +14,10 @@ Template.manageStaffMembers.helpers({
 
     groups: function() {
         return Groups.find({});
+    },
+
+    groupsExit: function(){
+        return Groups.find().count() > 0;
     }
 });
 

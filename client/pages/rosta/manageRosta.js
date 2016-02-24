@@ -3,13 +3,24 @@
  */
 
 Template.manageRosta.onCreated(function() {
-    Meteor.subscribe('onCallPeriod');
+    Meteor.subscribe("onCallPeriod");
+    Meteor.subscribe("groups");
+    Meteor.subscribe("staffMembers");
 });
 
 Template.manageRosta.helpers({
     onCallPeriods: function() {
         return OncallPeriod.find({});
+    },
+
+    isGroupsExist: function() {
+        return Groups.find().count() > 0;
+    },
+
+    groups: function(){
+        return Groups.find({});
     }
+
 });
 
 Template.manageRosta.events({
