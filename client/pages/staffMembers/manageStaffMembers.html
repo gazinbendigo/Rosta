@@ -26,17 +26,18 @@
     <!--Begin form -->
     <div class="container">
         <form id="add-staff-member" class="form-horizontal">
+            {{#if groupsExit}}
             <div class="form-group">
                 <div class="col-xs-1"><label for="groups" class="label">Group:</label></div>
                 <div class="col-xs-4">
                     <select id="groups" class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
+                        {{#each groups}}
+                            <option value="{{_id}}">{{name}}</option>
+                        {{/each}}
                     </select>
                 </div>
             </div>
+            {{/if}}
             <div class="form-group">
                 <div class="col-xs-1"><label for="firstName" class="label">Name:</label></div>
                 <div class="col-xs-4">
