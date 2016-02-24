@@ -7,3 +7,6 @@
  settings-production.json
 
 # Mongo Explorer plugin:
+.idea/libraries/meteor_packages_auto_import_browser.xml
+.idea/misc.xml
+.idea/Rosta.iml
