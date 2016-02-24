@@ -33,7 +33,7 @@ Template.manageStaffMembers.events({
         let newMember = {
             firstName: template.find('[name=firstName]').value,
             lastName: template.find('[name=lastName]').value,
-            groupId: template.$('#groups').val()
+            groupId: template.$('#groups').attr('name')
         }
 
         let index = StaffMembers.find().count() + 1;
