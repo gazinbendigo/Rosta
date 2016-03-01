@@ -5,8 +5,8 @@
 Template.homePage.onCreated(function(){
     Meteor.subscribe("onCallPeriod");
     Meteor.subscribe("groups");
-    this.isGroupSelected = new ReactiveVar(false);
-    this.groupName = new ReactiveVar(null);
+    this.isTeamSelected = new ReactiveVar(false);
+    this.teamName = new ReactiveVar(null);
 });
 
 Template.homePage.helpers({
@@ -14,20 +14,20 @@ Template.homePage.helpers({
         return OncallPeriod.find({});
     },
 
-    groups: function() {
-        return Groups.find({});
+    teams: function() {
+        return Teams.find({});
     },
 
-    groupsExist: function() {
-        return Groups.find().count() > 0;
+    teamsExist: function() {
+        return Teams.find().count() > 0;
     },
 
-    isGroupSelected: function() {
-        return Template.instance().isGroupSelected.get();
+    isTeamSelected: function() {
+        return Template.instance().isTeamSelected.get();
     },
 
     groupName: function() {
-        return Template.instance().groupName.get();
+        return Template.instance().teamName.get();
     },
 
     findGroupPhoneNo: function(groupId){
@@ -36,17 +36,17 @@ Template.homePage.helpers({
 });
 
 Template.homePage.events({
-    "change #groups": function(event, template){
-        var group = template.$('select[id=groups]').val()
+    "change #teams": function(event, template){
+        var group = template.$('select[id=teams]').val()
         if('select' !== group){
             //TODO: Go get the oncall periods for this group
-            Template.instance().isGroupSelected.set(true);
-            Template.instance().groupName.set(template.$('#groups option:selected').text());
+            Template.instance().isTeamSelected.set(true);
+            Template.instance().teamName.set(template.$('#teams option:selected').text());
         }
         else {
-            Template.instance().isGroupSelected.set(false);
-            Template.instance().groupName.set(null);
-            alert("Choose a valid group");
+            Template.instance().isTeamSelected.set(false);
+            Template.instance().teamName.set(null);
+            alert("Choose a valid team");
         }
     }
 });

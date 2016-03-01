@@ -1,4 +1,4 @@
-<template name="manageStaffMembers">
+<template name="manageTeamMembers">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-5">
@@ -12,10 +12,10 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-5">
                     <ul class="list-group sortable">
-                        {{#each staff}}
+                        {{#each team}}
                             <li data-id="{{_id}}" >
                                 <span class="pull-left">{{order}}. {{firstName}} {{lastName}}</span>
-                                <i class="fa fa-remove pull-right text-danger delete-staffMember"></i>
+                                <i class="fa fa-remove pull-right text-danger delete-teamMember"></i>
                             </li>
                         {{/each}}
                     </ul>
@@ -25,14 +25,14 @@
     </div>
     <!--Begin form -->
     <div class="container">
-        <form id="add-staff-member" class="form-horizontal">
-            {{#if groupsExit}}
+        <form id="add-team-member" class="form-horizontal">
+            {{#if teamsExit}}
             <div class="form-group">
-                <div class="col-xs-1"><label for="groups" class="label">Group:</label></div>
+                <div class="col-xs-1"><label for="teams" class="label">Team:</label></div>
                 <div class="col-xs-4">
-                    <select id="groups" class="form-control">
+                    <select id="teams" class="form-control">
                         <option value="select">-- select --</option>
-                        {{#each groups}}
+                        {{#each teams}}
                             <option value="{{_id}}">{{name}}</option>
                         {{/each}}
                     </select>
@@ -53,7 +53,7 @@
             </div>
             <div class="form-group">
                 <div class="col-xs-offset-1 col-xs-4">
-                    <button type="submit" name="addStaff" class="green-button">Add Staff Member</button>
+                    <button type="submit" name="addTeamMember" class="green-button">Add Team Member</button>
                 </div>
             </div>
         </form>

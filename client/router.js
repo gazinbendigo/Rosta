@@ -11,17 +11,17 @@ FlowRouter.route('/', {
     }
 });
 
-FlowRouter.route('/staff', {
-    name: 'staff',
+FlowRouter.route('/team-members', {
+    name: 'teamMember',
     action: function() {
-        BlazeLayout.render("baseLayout", {header: 'header', main: 'manageStaffMembers', footer: 'footer'});
+        BlazeLayout.render("baseLayout", {header: 'header', main: 'manageTeamMembers', footer: 'footer'});
     }
 });
 
-FlowRouter.route('/groups', {
-    name: 'groups',
+FlowRouter.route('/teams', {
+    name: 'teams',
     action: function() {
-        BlazeLayout.render("baseLayout", {header: 'header', main: 'manageGroups', footer: 'footer'});
+        BlazeLayout.render("baseLayout", {header: 'header', main: 'manageTeams', footer: 'footer'});
     }
 });
 

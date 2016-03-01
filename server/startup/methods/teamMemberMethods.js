@@ -4,13 +4,13 @@
 
 
 Meteor.methods({
-    addStaffMember: function(params){
+    addTeamMember: function(params){
         //check(params, {
         //    firstName: String,
         //    lastName: String,
         //    mobileNumber: Number,
         //    order: Number
         //});
-        StaffMembers.insert(params);
+        TeamMembers.insert(params);
     }
 });

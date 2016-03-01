@@ -3,12 +3,12 @@
  */
 
 
-Meteor.publish('groups', function(){
-    return Groups.find( {}, { sort: { order: 1 } } );
+Meteor.publish('teams', function(){
+    return Teams.find( {}, { sort: { order: 1 } } );
 });
 
-Meteor.publish('staffMembers', function(){
-    return StaffMembers.find({});
+Meteor.publish('teamMembers', function(){
+    return TeamMembers.find({});
 });
 
 Meteor.publish('onCallPeriod', function(){

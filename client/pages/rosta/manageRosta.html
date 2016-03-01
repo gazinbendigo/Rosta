@@ -14,11 +14,11 @@
             </div>
         </div>
     </div>
-    {{#if isGroupsExist}}
+    {{#if isTeamsExist}}
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-3">
-                    <select id="groups">
+                    <select id="teams">
                         <option value="select">-- Select --</option>
                         {{#each groups}}
                             <option value="{{_id}}">{{name}}</option>

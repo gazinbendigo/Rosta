@@ -35,3 +35,4 @@ reactive-var
 #datatable.js a javascript library that maybe very handy for EMA
 #aldeed:simple-schema #Validation library
 momentjs:moment
+tsega:bootstrap3-datetimepicker
