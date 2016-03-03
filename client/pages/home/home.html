@@ -3,15 +3,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-5">
-                    <h2>Groups</h2>
+                    <h2>Rosta's</h2>
                 </div>
             </div>
-            {{#if groupsExist}}
+            {{#if rostasExist}}
             <div class="row">
                 <div class="col-xs-12 col-sm-5">
-                    <select id="groups">
+                    <select id="rostas">
                         <option value="select">-- select --</option>
-                        {{#each groups}}
+                        {{#each rostas}}
                         <option value="{{_id}}">{{name}}</option>
                         {{/each}}
                     </select>
@@ -19,19 +19,19 @@
             </div>
             {{/if}}
         </div>
-        {{#if isGroupSelected}}
+        {{#if isRostaSelected}}
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
                     <hr/>
                     <div class="telephone-container">
-                        <h3>{{groupName}}:<a href="tel:03-5442-5468"> (03) 5442 5468&nbsp;<img src="/images/icons/telephone.png"></a></h3>
+                        <h3>{{name}}:<a href="tel:03-5442-5468"> (03) 5442 5468&nbsp;<img src="/images/icons/telephone.png"></a></h3>
                     </div>
                 </div>
             </div>
         </div>
         {{/if}}
-        {{#if isGroupSelected}}
+        {{#if isRostaSelected}}
         <div class="list-container">
             <div class="container">
                 <div class="row">

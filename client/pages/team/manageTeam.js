@@ -17,28 +17,27 @@ Template.manageTeams.events({
         event.preventDefault();
 
         let team = {
-            name: template.find( '[name="teamName"]' ).value,
-            telephone: template.find( '[name="phoneNumber"]' ).value
+            name: template.find('[name="teamName"]').value,
+            telephone: template.find('[name="phoneNumber"]').value
         };
 
         let teamIndex = Teams.find().count() + 1;
         team.order = teamIndex;
         team.id = teamIndex;
 
-        console.log(event);
 
         let date = template.find('[name="rostaStartDate"]').value;
         console.log('Selected Date: ' + date);
 
-        //Meteor.call( 'addGroup', group, ( error ) => {
-        //    if ( error ) {
-        //        console.log( error );
-        //    } else {
-        //        $( event.target ).get(0).reset();
-        //        $( '[name="groupTitle"]' ).focus();
-        //        //initSortable( '.sortable' );
-        //    }
-        //});
+        Meteor.call( 'addTeam', team, ( error ) => {
+            if ( error ) {
+                console.log( error );
+            } else {
+                $( event.target ).get(0).reset();
+                $( '[name="teamName"]' ).focus();
+                //initSortable( '.sortable' );
+            }
+        });
     },
 
     'click .delete-team' ( event, template ) {
@@ -52,7 +51,6 @@ Template.manageTeams.events({
             });
         }
     },
-
 
 
 });

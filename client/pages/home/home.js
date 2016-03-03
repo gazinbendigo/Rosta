@@ -4,9 +4,7 @@
 
 Template.homePage.onCreated(function(){
     Meteor.subscribe("onCallPeriod");
-    Meteor.subscribe("groups");
-    this.isTeamSelected = new ReactiveVar(false);
-    this.teamName = new ReactiveVar(null);
+    Meteor.subscribe("rostas");
 });
 
 Template.homePage.helpers({
@@ -14,38 +12,28 @@ Template.homePage.helpers({
         return OncallPeriod.find({});
     },
 
-    teams: function() {
-        return Teams.find({});
+    rostas: function() {
+        return Rostas.find({});
     },
 
-    teamsExist: function() {
-        return Teams.find().count() > 0;
-    },
-
-    isTeamSelected: function() {
-        return Template.instance().isTeamSelected.get();
+    rostasExist: function() {
+        return false;//Teams.find().count() > 0;
     },
 
     groupName: function() {
         return Template.instance().teamName.get();
-    },
-
-    findGroupPhoneNo: function(groupId){
-
     }
+
 });
 
 Template.homePage.events({
-    "change #teams": function(event, template){
-        var group = template.$('select[id=teams]').val()
-        if('select' !== group){
+    "change #rostas": function(event, template){
+        var rosta = template.$('select[id=rostas]').val()
+        if('select' !== rosta){
             //TODO: Go get the oncall periods for this group
-            Template.instance().isTeamSelected.set(true);
-            Template.instance().teamName.set(template.$('#teams option:selected').text());
+
         }
         else {
-            Template.instance().isTeamSelected.set(false);
-            Template.instance().teamName.set(null);
             alert("Choose a valid team");
         }
     }
