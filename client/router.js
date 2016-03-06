@@ -18,8 +18,8 @@ FlowRouter.route('/team-members', {
     }
 });
 
-FlowRouter.route('/teams', {
-    name: 'teams',
+FlowRouter.route('/team', {
+    name: 'team',
     action: function() {
         BlazeLayout.render("baseLayout", {header: 'header', main: 'manageTeams', footer: 'footer'});
     }
