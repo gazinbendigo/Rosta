@@ -3,8 +3,15 @@
  */
 
 Meteor.methods({
-    addRosta: function(params) {
-        Rosta.insert(params);
+    addRosta(rosta) {
+
+        try {
+            var rostaId = Rostas.insert(rosta);
+            return rostaId;
+        }
+        catch(exception){
+            return exception;
+        }
     }
 
 

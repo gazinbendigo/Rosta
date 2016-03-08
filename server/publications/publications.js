@@ -15,6 +15,16 @@ Meteor.publish('onCallPeriod', function(){
     return OncallPeriod.find({});
 });
 
-Meteor.publish('rostas', function(){
-    return Rostas.find({});
+Meteor.publish('rostas', function(rostaId){
+    //check(rostaId, String);
+    if(rostaId) {
+        return [
+            Rostas.find({'rostaId': rostaId}),
+            TeamMembers.find({'rostaId': rostaId})
+        ]
+    }
+    else {
+        return Rostas.find({});
+    }
+
 });

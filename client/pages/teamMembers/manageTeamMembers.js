@@ -4,7 +4,6 @@
 
 Template.manageTeamMembers.onCreated(function(){
     Meteor.subscribe('teamMembers');
-    Meteor.subscribe('teams');
 });
 
 Template.manageTeamMembers.helpers({
@@ -12,12 +11,8 @@ Template.manageTeamMembers.helpers({
         return TeamMembers.find({});
     },
 
-    teams: function() {
-        return Teams.find({});
-    },
-
-    teamsExit: function(){
-        return Teams.find().count() > 0;
+    rostas: function() {
+        return Rostas.find({});
     }
 });
 
