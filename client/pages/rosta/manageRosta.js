@@ -81,7 +81,6 @@ Template.manageRosta.events({
 
     "click #viewRosta" (event, template) {
         event.preventDefault();
-        console.log('event happened')
         //let rostaId = template.find().value;
         FlowRouter.go('/rosta/' + 1);
     }
