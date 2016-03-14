@@ -1,0 +1,20 @@
+<template name="viewRosta">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Viewing {{rosta.rostaName}} Rosta</h1>
+                <hr/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                {{#with rosta}}
+                <p>{{rostaName}}</p>
+                {{#each teamMembers}}
+                <p>{{firstName}} {{lastName}}</p>
+                {{/each}}
+                {{/with}}
+            </div>
+        </div>
+    </div>
+</template>

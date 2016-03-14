@@ -12,6 +12,18 @@ Meteor.methods({
         catch(exception){
             return exception;
         }
+    },
+
+    findRostaById(rostaId){
+        try {
+            return [
+                Rosta.find({'_id': rostaId}),
+                TeamMembers.find({'rostaId': rostaId})
+            ]
+        }
+        catch(exception){
+            return exception;
+        }
     }
 
 

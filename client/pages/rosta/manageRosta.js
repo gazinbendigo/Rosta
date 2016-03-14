@@ -77,9 +77,13 @@ Template.manageRosta.events({
                 console.log(err);
             }
         });
-        //Session.set('nextRostaId', nextRostaId);
-        //Session.set('createNewRosta', true);
-        //FlowRouter.go('/');
+    },
+
+    "click #viewRosta" (event, template) {
+        event.preventDefault();
+        console.log('event happened')
+        //let rostaId = template.find().value;
+        FlowRouter.go('/rosta/' + 1);
     }
 });
 

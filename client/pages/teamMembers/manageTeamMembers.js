@@ -19,17 +19,18 @@ Template.manageTeamMembers.helpers({
 Template.manageTeamMembers.events({
     "change #teams": function(event, template){
         var selectedTeam = $('#teams').val;
+        console.log(template.$('#teams').val());
         Session.set("selected-team", selectedTeam);
     },
 
     'submit #add-team-member' (event, template){
         event.preventDefault();
-        console.log(template.$('select[id=teams]').val());
-        if('select' !== template.$('select[id=teams]').val()){
+
+        if('select' !== template.$('#teams').val()){
             let newTeamMember = {
                 firstName: template.find('[name=firstName]').value,
                 lastName: template.find('[name=lastName]').value,
-                groupId: template.$('select[id=teams]').val()
+                rostaId: template.$('#teams').val()
             }
 
             let index = TeamMembers.find().count() + 1;

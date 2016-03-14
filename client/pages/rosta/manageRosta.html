@@ -14,8 +14,8 @@
                     <ul class="list-group sortable">
                         {{#each rostas}}
                             <li data-id="{{_id}}" >
-                                <span class="pull-left">{{rostaId}}. {{rostaName}} - Start Date: {{rostaStartDate}}</span>
-                                <i class="fa fa-remove pull-right text-danger delete-book"></i>
+                                <span class="pull-left">{{rostaId}}. {{rostaName}} - Start Date: {{rostaStartDate}}  <a href="" id="viewRosta">View</a>  <button name="deleteRosta" class="delete-x">X</button> </span>
+
                             </li>
                         {{/each}}
                     </ul>

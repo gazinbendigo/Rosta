@@ -18,10 +18,13 @@ Meteor.publish('onCallPeriod', function(){
 Meteor.publish('rostas', function(rostaId){
     //check(rostaId, String);
     if(rostaId) {
+        //return a cursor containing all the rostas and teamMembers that have a matching value i.e. Parent and Foreign Key relationship
+        console.log("publishing " + rostaId);
+        console.log(TeamMembers.find({'id': rostaId}));
         return [
             Rostas.find({'rostaId': rostaId}),
-            TeamMembers.find({'rostaId': rostaId})
-        ]
+            TeamMembers.find({'id': 1})
+        ];
     }
     else {
         return Rostas.find({});

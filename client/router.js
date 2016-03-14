@@ -31,3 +31,10 @@ FlowRouter.route('/rosta', {
         BlazeLayout.render("baseLayout", {header: 'header', main: 'manageRosta', footer: 'footer'});
     }
 });
+
+FlowRouter.route('/rosta/:id', {
+    name: 'viewRosta',
+    action: function() {
+        BlazeLayout.render("baseLayout", {header: 'header', main: 'viewRosta', footer: 'footer'});
+    }
+});

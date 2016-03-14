@@ -17,10 +17,10 @@ Template.homePage.helpers({
     },
 
     rostasExist: function() {
-        return false;//Teams.find().count() > 0;
+        return Rostas.find().count() > 0;
     },
 
-    groupName: function() {
+    teamName: function() {
         return Template.instance().teamName.get();
     }
 
@@ -28,14 +28,27 @@ Template.homePage.helpers({
 
 Template.homePage.events({
     "change #rostas": function(event, template){
-        var rosta = template.$('select[id=rostas]').val()
-        if('select' !== rosta){
+        let rostaId = template.$('#rostas').val();
+        if('select' !== rostaId){
             //TODO: Go get the oncall periods for this group
+            Meteor.call('findRostaById', rostaId, function(err, res){
+                if(err){
+                    console.log(err);
+                }
+                else {
 
+                }
+            });
         }
         else {
             alert("Choose a valid team");
         }
+    },
+
+    "click #createRosta": function(event, template){
+        FlowRouter.go('rosta');
     }
 });
+
+
 

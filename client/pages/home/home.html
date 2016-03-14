@@ -6,13 +6,24 @@
                     <h2>Rosta's</h2>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <h3>Create Rosta</h3>
+                    <a href="" id="createRosta">Create Rosta</a>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <h3>View Rosta</h3>
+                    <a href="" id="viewRosta">View Rosta</a>
+                </div>
+            </div>
+            <p></p>
             {{#if rostasExist}}
             <div class="row">
                 <div class="col-xs-12 col-sm-5">
                     <select id="rostas">
                         <option value="select">-- select --</option>
                         {{#each rostas}}
-                        <option value="{{_id}}">{{name}}</option>
+                        <option value="{{_id}}">{{rostaName}}</option>
                         {{/each}}
                     </select>
                 </div>
