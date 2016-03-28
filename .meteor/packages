@@ -36,3 +36,8 @@ check
 #aldeed:simple-schema #Validation library
 momentjs:moment
 tsega:bootstrap3-datetimepicker
+reywood:publish-composite
+meteorhacks:kadira-profiler
+random
+#kadira:debug
+tmeasday:publish-counts

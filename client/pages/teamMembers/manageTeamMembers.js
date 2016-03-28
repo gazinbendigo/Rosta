@@ -13,7 +13,16 @@ Template.manageTeamMembers.helpers({
 
     rostas: function() {
         return Rostas.find({});
-    }
+    },
+
+    doRostasExist: function() {
+        return Rostas.find({}).count() > 0;
+    }//,
+
+    // teamMemberCount: function(){
+    //     return {count: Counts.get('teamMemberCount'), teamMember: teamMember};
+    // }
+
 });
 
 Template.manageTeamMembers.events({

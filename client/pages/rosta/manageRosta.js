@@ -2,15 +2,11 @@
  * Created by holly on 20/02/16.
  */
 
-//let ROSTA_NAME = "ROSTA_NAME";
 
 Template.manageRosta.onCreated(function() {
     //Meteor.subscribe("onCallPeriod");
-    Meteor.subscribe("rostas");
-    let rostaId = 1; //FlowRouter.current().params._id;
-    //Template.instance().subscribe( 'rostas', postId );
-    //Reactive vars
-    //this.rostaName = new ReactiveVar();
+    Meteor.subscribe("getAllRosters");
+    
 });
 
 Template.manageRosta.helpers({
@@ -22,13 +18,21 @@ Template.manageRosta.helpers({
         return Rostas.find().count() > 0;
     },
 
-    rostas: function() {
+    getAllRostas: function() {
         return Rostas.find({}, {sort: {name: 1}}).fetch();
     },
 
     areStaffAssignedToRosta: function() {
         return TeamMembers.find();
+    },
+
+    getRostaLink: function(rostaId) {
+        let params = {id: rostaId};
+        let path = FlowRouter.path('view', params);
+        return path;
     }
+
+
 
 });
 
@@ -39,50 +43,23 @@ Template.manageRosta.onRendered(function(){
 
 Template.manageRosta.events({
 
-    //"change #teams" (event, template){
-    //    event.preventDefault();
-    //    let action = template.find("#createRosta :selected");
-    //    let rosterName = template.find("#rostaName");
-    //    //console.log(rosterName);
-    //    if(_.isEqual(action.text, 'Create Team')){
-    //        if(_.isEmpty(rosterName)) {
-    //            //TODO: Add selected date etc to session.
-    //            console.log("check");
-    //            //rosterName.oninput = check(rosterName, "Please enter a name");
-    //        }
-    //        else {
-    //            Session.set(ROSTA_NAME, rosterName);
-    //            //FlowRouter.go('team');
-    //        }
-    //
-    //
-    //    }
-    //    console.log("Selected action: " + action.text);
-    //},
-
     "submit #createRosta" (event, template){
         event.preventDefault();
-        let n = template.find("#rostaName").value;
-        console.log(n);
-        let d = template.find("#rosterStartDate").value;
-        console.log(d);
         let rosta = {
             rostaId: Rostas.find().count() + 1,
             rostaName: template.find("#rostaName").value,
-            rostaStartDate: template.find("#rosterStartDate").value
+            rostaStartDate: template.find("#rosterStartDate").value,
+            durationType: template.find("#oncallPeriod").value
         }
 
-        Meteor.call('addRosta', rosta, function(err, result){
-            if(err) {
-                console.log(err);
-            }
-        });
+        Rostas.insert(rosta);
     },
 
-    "click #viewRosta" (event, template) {
+    "click .delete-x" (event, template) {
         event.preventDefault();
-        //let rostaId = template.find().value;
-        FlowRouter.go('/rosta/' + 1);
+        let id = event.target.value;
+        Rostas.remove(id);
     }
+
 });
 

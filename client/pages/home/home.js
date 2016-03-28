@@ -4,7 +4,7 @@
 
 Template.homePage.onCreated(function(){
     Meteor.subscribe("onCallPeriod");
-    Meteor.subscribe("rostas");
+    Meteor.subscribe("getAllRosters");
 });
 
 Template.homePage.helpers({
@@ -16,12 +16,24 @@ Template.homePage.helpers({
         return Rostas.find({});
     },
 
-    rostasExist: function() {
-        return Rostas.find().count() > 0;
+    rostaHasTeamMembers: function(rostaId) {
+        let id = 1;
+        let count = OnCallPeriod.find({teamMemberId: {$gt: 0}, rostaId: rostaId}).count() > 0;
+        return count;
+        // if(count){
+        //     return true;
+        // }
+        // return false;
     },
 
     teamName: function() {
         return Template.instance().teamName.get();
+    },
+
+    getRostaPath: function(rostaId) {
+        let params = {id: rostaId};
+        let path = FlowRouter.path('view', params);
+        return path;
     }
 
 });

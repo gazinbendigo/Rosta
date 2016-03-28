@@ -47,6 +47,31 @@
   border-color: #BBB;
 }
 
+.lg-rd-bttn {
+  background: #bd9726;
+  background-image: -webkit-linear-gradient(top, #bd9726, #524000);
+  background-image: -moz-linear-gradient(top, #bd9726, #524000);
+  background-image: -ms-linear-gradient(top, #bd9726, #524000);
+  background-image: -o-linear-gradient(top, #bd9726, #524000);
+  background-image: linear-gradient(to bottom, #bd9726, #524000);
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 20px 8px 20px;
+  text-decoration: none;
+  border: solid #a2a2a2 1px;
+}
+
+.lg-rd-bttn:hover {
+  background: #9e7c1e;
+  color: #f2f2f2;
+  text-decoration: none;
+}
+
 /* End Mixins */
 
 html , body {
@@ -291,13 +316,7 @@ a{
     display: block;
 }
 
-.pull-left {
-    background: #eee;
-    border: solid 1px #ddd;
-    border-radius: 2px;
-    padding: 8px 14px 6px 4px;
-    margin-bottom: .35em;
-}
+
 
 .delete-x {
     float: right;
@@ -306,8 +325,13 @@ a{
     font-size: 1em;
     border: none;
     position: relative;
-    color: #555;
+    color: #ff2f36;
     font-size: 14px;
+}
+
+.nav-pills > li.active > a {
+    color: #ac9b5b;
+    background-color: #fff;
 }
 
 

@@ -5,7 +5,7 @@
 BlazeLayout.setRoot('body');
 
 FlowRouter.route('/', {
-    name: 'home',
+    name: 'index',
     action: function() {
         BlazeLayout.render("baseLayout", {header: 'header', main: 'homePage', footer: 'footer'});
     }
@@ -32,9 +32,25 @@ FlowRouter.route('/rosta', {
     }
 });
 
-FlowRouter.route('/rosta/:id', {
-    name: 'viewRosta',
-    action: function() {
+FlowRouter.route('/view/:id', {
+    name: 'view',
+    action: function(params) {
         BlazeLayout.render("baseLayout", {header: 'header', main: 'viewRosta', footer: 'footer'});
+    }
+});
+
+
+
+FlowRouter.route('/test', {
+    name: 'test',
+    action: function() {
+        BlazeLayout.render("baseLayout", {header: "header", main: "test", footer: "footer"});
+    }
+});
+
+FlowRouter.route('/dropdown', {
+    name: 'dropdown',
+    action: function() {
+        BlazeLayout.render("dropdowns");
     }
 });

@@ -4,22 +4,38 @@
 
 Template.viewRosta.onCreated(function() {
 	let rostaId = FlowRouter.current().params.id;
-	console.log('URL ID ' + rostaId);
-	Template.instance().subscribe('rostas', rostaId);
+	Meteor.subscribe('getRostaById', rostaId);
+	//Template.instance().subscribe('rostas', rostaId);
 });
 
 Template.viewRosta.helpers({
-	rosta() {
-		let rosta = Rostas.findOne();
-		if(rosta){
-			return rosta;
-		}
+	getRostas: function(){
+		return Rostas.find();
 	},
-	teamMembers() {
-		let teamMembers = TeamMembers.find();
-		if(teamMembers){
-			return teamMembers;
-		}
+
+	getTeamMembers: function() {
+		let periods = OnCallPeriod.find({rostaId: this._id}).fetch();
+		let teamMembers = [];
+		forEach(function(element){
+			teamMembers.push(TeamMembers.find({id: element.teamMemberId}));
+		})
+		console.log(JSON.stringify(teamMembers));
+		return teamMembers;
+	},
+
+	getOnCallPeriods: function() {
+		return OnCallPeriod.find({rostaId: this._id});
+	},
+
+	doesNotRostaExist: function() {
+		return false; // Rostas.find({}).count() < 1;
+	}
+});
+
+Template.viewRosta.events({
+	"click chooseRosta" (event, template) {
+		event.preventDefault();
+		FlowRouter.go('/rosta/');
 	}
 });
 

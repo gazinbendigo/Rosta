@@ -8,9 +8,9 @@
             </div>
         </div>
     </div>
-
-    <!--Begin form -->
     <div class="container">
+    {{#if doRostasExist}}
+    <!--Begin form -->
         <form id="add-team-member" class="form-horizontal">
 
             <div class="form-group">
@@ -43,6 +43,14 @@
                 </div>
             </div>
         </form>
+        {{else}}
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>Your the first to create a Rosta</h3>
+                <p>You need to create a <a href="" id="createRosta">Rosta</a> before creating Team members</p>
+            </div>
+        </div>
+        {{/if}}
     </div>
 
 </template>

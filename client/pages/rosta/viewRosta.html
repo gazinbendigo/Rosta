@@ -2,18 +2,20 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h1>Viewing {{rosta.rostaName}} Rosta</h1>
+                <h1>{{getRostas.rostaName}}</h1>
                 <hr/>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
-                {{#with rosta}}
-                <p>{{rostaName}}</p>
-                {{#each teamMembers}}
-                <p>{{firstName}} {{lastName}}</p>
-                {{/each}}
-                {{/with}}
+               <p>{{rostaName}}</p>
+                    {{#each getRostas}}
+                        <h2>{{rostaName}}</h2>
+                        {{#each getTeamMembers}}
+                            <p>{{firstName}} {{lastName}}</p>
+                        {{/each}}
+                    {{/each}}
+
             </div>
         </div>
     </div>

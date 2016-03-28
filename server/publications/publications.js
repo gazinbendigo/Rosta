@@ -11,21 +11,41 @@ Meteor.publish('teamMembers', function(){
     return TeamMembers.find({});
 });
 
+// Meteor.publish('teamMembers', function(member){
+//     let cursor = TeamMembers.find({teamMember: member});
+//     Counts.publish(this, 'teamMemberCount', cursor);
+// });
+
 Meteor.publish('onCallPeriod', function(){
-    return OncallPeriod.find({});
+    return OnCallPeriod.find({});
 });
 
-Meteor.publish('rostas', function(rostaId){
-    //check(rostaId, String);
+Meteor.publish('getRostaById', function(rostaId){
     if(rostaId) {
-        //return a cursor containing all the rostas and teamMembers that have a matching value i.e. Parent and Foreign Key relationship
         return [
-            Rostas.find({'rostaId': rostaId}),
-            TeamMembers.find({'id': 1})
+            Rostas.find({'_id': rostaId}),
+            OnCallPeriod.find({rostaId: rostaId}),
+            TeamMembers.find({'rostaId': rostaId})
         ];
     }
-    else {
-        return Rostas.find({});
-    }
+});
+
+Meteor.publish('getAllRosters', function(){
+    return Rostas.find({});
+});
+
+
+Meteor.publishComposite("teamRosta", {
+
+        find: function() {
+            return Rostas.find({'roastaId': 1});
+        },
+        children: [
+            {
+                find: function() {
+                    return TeamMembers.find({'rostaId': 1});
+                }
+            }
+        ]
 
 });

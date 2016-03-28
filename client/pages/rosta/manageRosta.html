@@ -18,9 +18,10 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-5">
                     <ul class="list-group sortable">
-                        {{#each rostas}}
-                            <li data-id="{{_id}}" >
-                                <span class="pull-left">{{rostaId}}. {{rostaName}} - Start Date: {{rostaStartDate}}  <a href="" id="viewRosta">View</a>  <button name="deleteRosta" class="delete-x">X</button> </span>
+                        {{#each getAllRostas}}
+                            <li data-id="{{_id}}" class="list-group-item clearfix">
+                                <span class="pull-left">{{rostaId}}. {{rostaName}} - Start Date: {{rostaStartDate}}  <a href="{{getRostaLink _id}}" id="viewRosta">Edit</a></span>
+                                <span class="pull-right"><button name="deleteRosta" value="{{_id}}" class="delete-x">X</button></span>
 
                             </li>
                         {{/each}}
@@ -38,14 +39,24 @@
 
             <form id="createRosta" class="form-horizontal">
                 <div class="form-group">
-                    <div class="col-xs-1"><label for="rostaName" class="label">Name:</label> </div>
+                    <div class="col-xs-2"><label for="rostaName" class="label">Name:</label> </div>
                     <div class="col-xs-4">
                         <input type="text" id="rostaName" placeholder="Rosta Name" class="required" name="name">
                     </div>
                 </div>
-
                 <div class="form-group">
-                    <div class="col-xs-1"><label for="rosterStartDate" class="label">Start Date:</label> </div>
+                    <div class="col-xs-2"><label for="oncallPeriod" class="label">Oncall Period:</label> </div>
+                    <div class="col-xs-4">
+                        <select id="oncallPeriod">
+                            <option value="I">-- Select --</option>
+                            <option value="W">Weekly</option>
+                            <option value="F">Fortnightly</option>
+                            <option value="M">Monthly</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-2"><label for="rosterStartDate" class="label">Start Date:</label> </div>
                     <div class="col-xs-4">
                         <div class="input-group datetimepicker">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
@@ -54,8 +65,8 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-xs-offset-1 col-xs-4">
-                        <button type="submit" class="green-button">Create</button>
+                    <div class="col-xs-offset-2 col-xs-4">
+                        <button type="submit" class="lg-rd-bttn">Create</button>
                     </div>
                 </div>
 

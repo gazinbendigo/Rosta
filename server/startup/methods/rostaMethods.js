@@ -24,7 +24,25 @@ Meteor.methods({
         catch(exception){
             return exception;
         }
-    }
+    },
 
+    //Decided not to use this for now.
+    findAllRostas() {
+        try {
+            return Rosta.find({});
+        }
+        catch (exception) {
+            return exception;
+        }
+    },
+
+    deleteRostaById: function(rostaId) {
+        try {
+            Rosta.remove({_id: rostaId});
+        }
+        catch (exception){
+            return exception;
+        }
+    }
 
 });
