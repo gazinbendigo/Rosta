@@ -1,0 +1,45 @@
+<Template name="createTeamMember">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Create Team Member</h2>
+                <hr/>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <!--Begin form -->
+        <form id="add-team-member" class="form-horizontal">
+
+            <div class="form-group">
+                <div class="col-xs-1"><label for="teams" class="label">Team:</label></div>
+                <div class="col-xs-4">
+                    <select id="teams" class="form-control">
+                        <option value="select">-- select --</option>
+                        {{#each rostas}}
+                            <option value="{{_id}}">{{rostaName}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-xs-1"><label for="firstName" class="label">First Name:</label></div>
+                <div class="col-xs-4">
+                    <input type="text" name="firstName" placeholder="First Name" id="firstName">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-1"><label for="lastName" class="label">Last Name:</label></div>
+                <div class="col-xs-4">
+                    <input type="text" name="lastName" placeholder="Last Name" id="lastName">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-1 col-xs-4">
+                    <button type="submit" name="addTeamMember" class="lg-rd-bttn">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</Template>

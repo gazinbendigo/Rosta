@@ -36,24 +36,9 @@ Template.manageRosta.helpers({
 
 });
 
-Template.manageRosta.onRendered(function(){
-    this.$('.datetimepicker').datetimepicker({format: 'DD-MM-YYYY'});
-    //$('#createRosta').validate();
-});
+
 
 Template.manageRosta.events({
-
-    "submit #createRosta" (event, template){
-        event.preventDefault();
-        let rosta = {
-            rostaId: Rostas.find().count() + 1,
-            rostaName: template.find("#rostaName").value,
-            rostaStartDate: template.find("#rosterStartDate").value,
-            durationType: template.find("#oncallPeriod").value
-        }
-
-        Rostas.insert(rosta);
-    },
 
     "click .delete-x" (event, template) {
         event.preventDefault();

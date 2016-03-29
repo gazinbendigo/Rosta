@@ -4,7 +4,7 @@
 
 
 Meteor.startup(function(){
-    OnCallPeriod.remove({});
+    //OnCallPeriod.remove({});
     // Rostas.remove({});
     // TeamMembers.remove({});
 

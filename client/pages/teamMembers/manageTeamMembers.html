@@ -8,49 +8,6 @@
             </div>
         </div>
     </div>
-    <div class="container">
-    {{#if doRostasExist}}
-    <!--Begin form -->
-        <form id="add-team-member" class="form-horizontal">
 
-            <div class="form-group">
-                <div class="col-xs-1"><label for="teams" class="label">Team:</label></div>
-                <div class="col-xs-4">
-                    <select id="teams" class="form-control">
-                        <option value="select">-- select --</option>
-                        {{#each rostas}}
-                            <option value="{{_id}}">{{rostaName}}</option>
-                        {{/each}}
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-xs-1"><label for="firstName" class="label">First Name:</label></div>
-                <div class="col-xs-4">
-                    <input type="text" name="firstName" placeholder="First Name" id="firstName">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-xs-1"><label for="lastName" class="label">Last Name:</label></div>
-                <div class="col-xs-4">
-                    <input type="text" name="lastName" placeholder="Last Name" id="lastName">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-xs-offset-1 col-xs-4">
-                    <button type="submit" name="addTeamMember" class="green-button">Add Team Member</button>
-                </div>
-            </div>
-        </form>
-        {{else}}
-        <div class="row">
-            <div class="col-xs-12">
-                <h3>Your the first to create a Rosta</h3>
-                <p>You need to create a <a href="" id="createRosta">Rosta</a> before creating Team members</p>
-            </div>
-        </div>
-        {{/if}}
-    </div>
 
 </template>

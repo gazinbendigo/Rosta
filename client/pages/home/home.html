@@ -12,25 +12,11 @@
         {{#each rostas}}
             <div class="row">
                 <div class="col-xs-12">
-
                     <div class="telephone-container">
-
-                        {{#if rostaHasTeamMembers _id}}
-                            <h3>{{rostaName}}: <a href="{{getRostaPath _id}}">View</a> <a href="tel:03-5442-5468"> (03) 5442 5468&nbsp;<img src="/images/icons/telephone.png"></a></h3>
-                        {{else}}
-                            <h3>{{rostaName}}: <a href="{{getRostaPath _id}}">Add Team members</a> <a href="tel:03-5442-5468"> (03) 5442 5468&nbsp;<img src="/images/icons/telephone.png"></a></h3>
-                        {{/if}}
+                        <h4>{{rostaName}}: Gareth Baker&nbsp;<a href="tel:03-5442-5468"> (03) 5442 5468&nbsp;<img src="/images/icons/telephone.png"></a></h4>
                     </div>
                 </div>
             </div>
         {{/each}}
      </div>
-    <div class="container">
-        <div class="row">
-            <div class="button-container">
-                <div class="col-xs-12"><button type="button" name="createRosta" class="lg-rd-bttn">Create Rosta</button></div>
-            </div>
-        </div>
-    </div>
-
 </template>

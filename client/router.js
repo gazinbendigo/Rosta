@@ -11,24 +11,31 @@ FlowRouter.route('/', {
     }
 });
 
-FlowRouter.route('/team-members', {
-    name: 'teamMember',
-    action: function() {
-        BlazeLayout.render("baseLayout", {header: 'header', main: 'manageTeamMembers', footer: 'footer'});
+FlowRouter.route('/rosta/create', {
+    name: 'createRosta',
+    action: function(){
+        BlazeLayout.render("baseLayout", {header: 'header', main: 'createRosta', footer: 'footer'});
     }
 });
 
-FlowRouter.route('/team', {
-    name: 'team',
-    action: function() {
-        BlazeLayout.render("baseLayout", {header: 'header', main: 'manageTeams', footer: 'footer'});
-    }
-});
-
-FlowRouter.route('/rosta', {
-    name: 'rosta',
+FlowRouter.route('/rosta/manage', {
+    name: 'manageRosta',
     action: function() {
         BlazeLayout.render("baseLayout", {header: 'header', main: 'manageRosta', footer: 'footer'});
+    }
+});
+
+FlowRouter.route('/team-members/create', {
+    name: 'createTeamMember',
+    action: function() {
+        BlazeLayout.render("baseLayout", {header: 'header', main: 'createTeamMember', footer: 'footer'});
+    }
+});
+
+FlowRouter.route('/team-members/manage', {
+    name: 'manageTeamMember',
+    action: function() {
+        BlazeLayout.render("baseLayout", {header: 'header', main: 'manageTeamMembers', footer: 'footer'});
     }
 });
 

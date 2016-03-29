@@ -8,26 +8,9 @@ Template.homePage.onCreated(function(){
 });
 
 Template.homePage.helpers({
-    onCallPeriods: function() {
-        return OncallPeriod.find({});
-    },
-
+   
     rostas: function() {
         return Rostas.find({});
-    },
-
-    rostaHasTeamMembers: function(rostaId) {
-        let id = 1;
-        let count = OnCallPeriod.find({teamMemberId: {$gt: 0}, rostaId: rostaId}).count() > 0;
-        return count;
-        // if(count){
-        //     return true;
-        // }
-        // return false;
-    },
-
-    teamName: function() {
-        return Template.instance().teamName.get();
     },
 
     getRostaPath: function(rostaId) {

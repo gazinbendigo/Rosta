@@ -1,0 +1,50 @@
+<template name="createRosta">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Create Rosta</h2>
+                <hr/>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-5">
+                <h3>Create Rosta</h3>
+            </div>
+        </div>
+        <form id="createRosta" class="form-horizontal">
+            <div class="form-group">
+                <div class="col-xs-2"><label for="rostaName" class="label">Name:</label> </div>
+                <div class="col-xs-4">
+                    <input type="text" id="rostaName" placeholder="Rosta Name" class="required" name="name">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-2"><label for="oncallPeriod" class="label">Oncall Period:</label> </div>
+                <div class="col-xs-4">
+                    <select id="duration">
+                        <option value="I">-- Select --</option>
+                        <option value="W">Weekly</option>
+                        <option value="F">Fortnightly</option>
+                        <option value="M">Monthly</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-2"><label for="rosterStartDate" class="label">Start Date:</label> </div>
+                <div class="col-xs-4">
+                    <div class="input-group datetimepicker">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        <input class="set-due-date form-control" type="datetime" name="rostaStartDate" id="rosterStartDate"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-4">
+                    <button type="submit" class="lg-rd-bttn">Create</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</template>
