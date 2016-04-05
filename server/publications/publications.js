@@ -20,6 +20,12 @@ Meteor.publish('onCallPeriod', function(){
     return OnCallPeriod.find({});
 });
 
+
+/**
+ * Get a Rosta by its _id.
+ *
+ * @return The Rosta defined by the given _id
+ */
 Meteor.publish('getRostaById', function(rostaId){
     console.log('Server pub: ' + rostaId);
     if(rostaId) {
@@ -33,6 +39,13 @@ Meteor.publish('getAllRosters', function(){
     return Rostas.find({});
 });
 
+
+Meteor.publish('getOncallPeriodsByRostaId', function(rostaId){
+    console.log('Server pub: ' + rostaId);
+    if(rostaId) {
+        return OnCallPeriod.find({rostaId: rostaId}, {sort: {orderId: 1}});
+    }
+});
 
 // Meteor.publishComposite("teamRosta", {
 //
@@ -49,9 +62,3 @@ Meteor.publish('getAllRosters', function(){
 //
 // });
 
-Meteor.publish('getOncallPeriodsByRostaId', function(rostaId){
-        console.log('Server pub: ' + rostaId);
-     if(rostaId) {
-         return OnCallPeriod.find({rostaId: rostaId}, {sort: {orderId: 1}});
-     }
-});
