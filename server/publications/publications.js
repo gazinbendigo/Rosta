@@ -21,12 +21,11 @@ Meteor.publish('onCallPeriod', function(){
 });
 
 Meteor.publish('getRostaById', function(rostaId){
+    console.log('Server pub: ' + rostaId);
     if(rostaId) {
-        return [
-            Rostas.find({'_id': rostaId}),
-            OnCallPeriod.find({rostaId: rostaId}),
-            TeamMembers.find({'rostaId': rostaId})
-        ];
+        let Obj = Rostas.find({_id: rostaId});
+        console.log(Obj.count());
+        return Obj;
     }
 });
 
@@ -35,17 +34,24 @@ Meteor.publish('getAllRosters', function(){
 });
 
 
-Meteor.publishComposite("teamRosta", {
+// Meteor.publishComposite("teamRosta", {
+//
+//         find: function() {
+//             return Rostas.find({'roastaId': 1});
+//         },
+//         children: [
+//             {
+//                 find: function() {
+//                     return TeamMembers.find({'rostaId': 1});
+//                 }
+//             }
+//         ]
+//
+// });
 
-        find: function() {
-            return Rostas.find({'roastaId': 1});
-        },
-        children: [
-            {
-                find: function() {
-                    return TeamMembers.find({'rostaId': 1});
-                }
-            }
-        ]
-
+Meteor.publish('getOncallPeriodsByRostaId', function(rostaId){
+        console.log('Server pub: ' + rostaId);
+     if(rostaId) {
+         return OnCallPeriod.find({rostaId: rostaId}, {sort: {orderId: 1}});
+     }
 });

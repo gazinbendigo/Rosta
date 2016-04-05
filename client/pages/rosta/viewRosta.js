@@ -3,33 +3,39 @@
  */
 
 Template.viewRosta.onCreated(function() {
+	//if(Rostas.find({}).count() > 0){Rostas.remove({});}
 	let rostaId = FlowRouter.current().params.id;
+	console.log('Out: ' + rostaId);
 	Meteor.subscribe('getRostaById', rostaId);
-	//Template.instance().subscribe('rostas', rostaId);
+	console.log(Rostas.find({}).count());
+	//Meteor.subscribe('getOncallPeriodsByRostaId', rostaId);
+	//Meteor.subscribe('teamMembers');
 });
 
 Template.viewRosta.helpers({
 	getRostas: function(){
-		return Rostas.find();
+		return Rostas.find({});
 	},
 
 	getTeamMembers: function() {
-		let periods = OnCallPeriod.find({rostaId: this._id}).fetch();
-		let teamMembers = [];
-		forEach(function(element){
-			teamMembers.push(TeamMembers.find({id: element.teamMemberId}));
-		})
-		console.log(JSON.stringify(teamMembers));
-		return teamMembers;
-	},
+		console.log('Start');
+		let rosta = Rostas.find({}).fetch();
+		console.log(JSON.stringify(rosta));
+		// let periods = OnCallPeriod.find({}).fetch();
+		// console.log(JSON.stringify(periods));
+		// _.each(periods, function(item){
+		// 	console.log(item.teamMemberId);
+		// 	let member = TeamMembers.find({_id: item.teamMemberId});
+		// 	console.log(member.firstName);
+		// });
 
-	getOnCallPeriods: function() {
-		return OnCallPeriod.find({rostaId: this._id});
-	},
-
-	doesNotRostaExist: function() {
-		return false; // Rostas.find({}).count() < 1;
+		// let teamMembers = [];
+		// console.log(teamMembers.length);
+		console.log('End');
+		return 'End of method';
 	}
+
+
 });
 
 Template.viewRosta.events({

@@ -39,8 +39,8 @@ FlowRouter.route('/team-members/manage', {
     }
 });
 
-FlowRouter.route('/view/:id', {
-    name: 'view',
+FlowRouter.route('/rosta/view/:id', {
+    name: 'viewRosta',
     action: function(params) {
         BlazeLayout.render("baseLayout", {header: 'header', main: 'viewRosta', footer: 'footer'});
     }

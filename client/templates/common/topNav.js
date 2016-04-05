@@ -3,7 +3,7 @@
  */
 
 
-Template.dropdowns.helpers({
+Template.topNav.helpers({
 	pathToLink: function(path) {
 		let url = FlowRouter.path(path);
 		return url;

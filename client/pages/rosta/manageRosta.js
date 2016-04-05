@@ -28,7 +28,7 @@ Template.manageRosta.helpers({
 
     getRostaLink: function(rostaId) {
         let params = {id: rostaId};
-        let path = FlowRouter.path('view', params);
+        let path = FlowRouter.path('viewRosta', params);
         return path;
     }
 
