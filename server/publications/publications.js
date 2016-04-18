@@ -27,10 +27,8 @@ Meteor.publish('onCallPeriod', function(){
  * @return The Rosta defined by the given _id
  */
 Meteor.publish('getRostaById', function(rostaId){
-    console.log('Server pub: ' + rostaId);
     if(rostaId) {
         let Obj = Rostas.find({_id: rostaId});
-        console.log(Obj.count());
         return Obj;
     }
 });

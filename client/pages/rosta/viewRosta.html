@@ -8,8 +8,12 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <p>Hello there</p>
-                {{getTeamMembers}}
+                <ul class="list-group sortable">
+                    {{#each getTeamMembers}}
+                        <li id="{{orderId}}" class="list-group-item">{{startDate}} {{firstName}} {{lastName}}</li>
+                    {{/each}}
+                </ul>
+
             </div>
         </div>
     </div>

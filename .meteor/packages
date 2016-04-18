@@ -37,7 +37,7 @@ check
 momentjs:moment
 tsega:bootstrap3-datetimepicker
 reywood:publish-composite
-meteorhacks:kadira-profiler
+#meteorhacks:kadira-profiler
 random
 #kadira:debug
 tmeasday:publish-counts
